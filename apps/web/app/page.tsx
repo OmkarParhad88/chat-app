@@ -1,7 +1,30 @@
+import React from "react";
+import Navbar from "@/components/base/Navbar";
+import HeroSection from "@/components/base/HeroSection";
+import FeatureSection from "@/components/base/FeatureSection";
+import UserReviews from "@/components/base/UserReviews";
+import Footer from "@/components/base/Footer";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
+import { CustomSession } from "@/app/api/auth/[...nextauth]/options";
+
 export default async function Page() {
+  const session: CustomSession | null = await getServerSession(authOptions);
   return (
-    <div>
-      <h1>My App</h1>
+    <div className="min-h-screen flex flex-col ">
+      {/* Header */}
+      <Navbar user={session?.user ?? null} />
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* Features Section */}
+      <FeatureSection />
+
+      {/* User Reviews Section */}
+      <UserReviews />
+
+      {/* Footer */}
+      <Footer />
     </div>
-  )
+  );
 }
