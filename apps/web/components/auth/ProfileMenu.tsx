@@ -28,7 +28,7 @@ export default function ProfileMenu({
           <UserAvatar name={name} image={image} />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuLabel>{name}</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem>Profile</DropdownMenuItem>
           <DropdownMenuItem onClick={() => setLogoutOpen(true)}>

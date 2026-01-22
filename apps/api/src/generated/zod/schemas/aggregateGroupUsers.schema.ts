@@ -1,0 +1,14 @@
+import type { Prisma } from '../../prisma/client';
+import * as z from 'zod';
+import { GroupUsersOrderByWithRelationInputObjectSchema as GroupUsersOrderByWithRelationInputObjectSchema } from './objects/GroupUsersOrderByWithRelationInput.schema';
+import { GroupUsersWhereInputObjectSchema as GroupUsersWhereInputObjectSchema } from './objects/GroupUsersWhereInput.schema';
+import { GroupUsersWhereUniqueInputObjectSchema as GroupUsersWhereUniqueInputObjectSchema } from './objects/GroupUsersWhereUniqueInput.schema';
+import { GroupUsersCountAggregateInputObjectSchema as GroupUsersCountAggregateInputObjectSchema } from './objects/GroupUsersCountAggregateInput.schema';
+import { GroupUsersMinAggregateInputObjectSchema as GroupUsersMinAggregateInputObjectSchema } from './objects/GroupUsersMinAggregateInput.schema';
+import { GroupUsersMaxAggregateInputObjectSchema as GroupUsersMaxAggregateInputObjectSchema } from './objects/GroupUsersMaxAggregateInput.schema';
+import { GroupUsersAvgAggregateInputObjectSchema as GroupUsersAvgAggregateInputObjectSchema } from './objects/GroupUsersAvgAggregateInput.schema';
+import { GroupUsersSumAggregateInputObjectSchema as GroupUsersSumAggregateInputObjectSchema } from './objects/GroupUsersSumAggregateInput.schema';
+
+export const GroupUsersAggregateSchema: z.ZodType<Prisma.GroupUsersAggregateArgs> = z.object({ orderBy: z.union([GroupUsersOrderByWithRelationInputObjectSchema, GroupUsersOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupUsersWhereInputObjectSchema.optional(), cursor: GroupUsersWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), GroupUsersCountAggregateInputObjectSchema ]).optional(), _min: GroupUsersMinAggregateInputObjectSchema.optional(), _max: GroupUsersMaxAggregateInputObjectSchema.optional(), _avg: GroupUsersAvgAggregateInputObjectSchema.optional(), _sum: GroupUsersSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.GroupUsersAggregateArgs>;
+
+export const GroupUsersAggregateZodSchema = z.object({ orderBy: z.union([GroupUsersOrderByWithRelationInputObjectSchema, GroupUsersOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupUsersWhereInputObjectSchema.optional(), cursor: GroupUsersWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), GroupUsersCountAggregateInputObjectSchema ]).optional(), _min: GroupUsersMinAggregateInputObjectSchema.optional(), _max: GroupUsersMaxAggregateInputObjectSchema.optional(), _avg: GroupUsersAvgAggregateInputObjectSchema.optional(), _sum: GroupUsersSumAggregateInputObjectSchema.optional() }).strict();

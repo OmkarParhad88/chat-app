@@ -16,6 +16,14 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@prisma-zod/*": [
+        "./src/generated/zod/schemas/*"
+      ],
+      "@prisma/*": [
+        "./src/generated/prisma/*"
+      ]
+    }
   }
 }

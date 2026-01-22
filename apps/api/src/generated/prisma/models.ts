@@ -9,4 +9,7 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/User'
+export type * from './models/GroupChat'
+export type * from './models/GroupUsers'
+export type * from './models/Chats'
 export type * from './commonInputTypes'

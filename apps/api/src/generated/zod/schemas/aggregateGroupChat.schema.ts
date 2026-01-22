@@ -1,0 +1,14 @@
+import type { Prisma } from '../../prisma/client';
+import * as z from 'zod';
+import { GroupChatOrderByWithRelationInputObjectSchema as GroupChatOrderByWithRelationInputObjectSchema } from './objects/GroupChatOrderByWithRelationInput.schema';
+import { GroupChatWhereInputObjectSchema as GroupChatWhereInputObjectSchema } from './objects/GroupChatWhereInput.schema';
+import { GroupChatWhereUniqueInputObjectSchema as GroupChatWhereUniqueInputObjectSchema } from './objects/GroupChatWhereUniqueInput.schema';
+import { GroupChatCountAggregateInputObjectSchema as GroupChatCountAggregateInputObjectSchema } from './objects/GroupChatCountAggregateInput.schema';
+import { GroupChatMinAggregateInputObjectSchema as GroupChatMinAggregateInputObjectSchema } from './objects/GroupChatMinAggregateInput.schema';
+import { GroupChatMaxAggregateInputObjectSchema as GroupChatMaxAggregateInputObjectSchema } from './objects/GroupChatMaxAggregateInput.schema';
+import { GroupChatAvgAggregateInputObjectSchema as GroupChatAvgAggregateInputObjectSchema } from './objects/GroupChatAvgAggregateInput.schema';
+import { GroupChatSumAggregateInputObjectSchema as GroupChatSumAggregateInputObjectSchema } from './objects/GroupChatSumAggregateInput.schema';
+
+export const GroupChatAggregateSchema: z.ZodType<Prisma.GroupChatAggregateArgs> = z.object({ orderBy: z.union([GroupChatOrderByWithRelationInputObjectSchema, GroupChatOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupChatWhereInputObjectSchema.optional(), cursor: GroupChatWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), GroupChatCountAggregateInputObjectSchema ]).optional(), _min: GroupChatMinAggregateInputObjectSchema.optional(), _max: GroupChatMaxAggregateInputObjectSchema.optional(), _avg: GroupChatAvgAggregateInputObjectSchema.optional(), _sum: GroupChatSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.GroupChatAggregateArgs>;
+
+export const GroupChatAggregateZodSchema = z.object({ orderBy: z.union([GroupChatOrderByWithRelationInputObjectSchema, GroupChatOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupChatWhereInputObjectSchema.optional(), cursor: GroupChatWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), GroupChatCountAggregateInputObjectSchema ]).optional(), _min: GroupChatMinAggregateInputObjectSchema.optional(), _max: GroupChatMaxAggregateInputObjectSchema.optional(), _avg: GroupChatAvgAggregateInputObjectSchema.optional(), _sum: GroupChatSumAggregateInputObjectSchema.optional() }).strict();

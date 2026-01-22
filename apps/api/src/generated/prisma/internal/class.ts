@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.2.0",
   "engineVersion": "0c8ef2ce45c83248ab3df073180d5eda9e8be7a3",
   "activeProvider": "postgresql",
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel User {\n  id         Int      @id @default(autoincrement())\n  name       String   @db.VarChar(191)\n  email      String   @unique @db.VarChar(191)\n  provider   String   @unique @db.VarChar(100)\n  image      String?\n  oauth_id   String\n  created_at DateTime @default(now())\n}\n",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ngenerator zod {\n  provider = \"prisma-zod-generator\"\n  output   = \"../src/generated/zod\"\n  config   = \"./zod-generator.config.json\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel User {\n  id         Int         @id @default(autoincrement())\n  name       String      @db.VarChar(191)\n  /// @zod.email()\n  email      String      @unique @db.VarChar(191)\n  provider   String      @unique @db.VarChar(100)\n  /// @zod.url()     \n  image      String?\n  oauth_id   String\n  created_at DateTime    @default(now())\n  chatGroups GroupChat[]\n}\n\nmodel GroupChat {\n  /// @zod.uuid()\n  id         String       @id @default(uuid()) @db.Uuid\n  user       User         @relation(fields: [user_id], references: [id], onDelete: Cascade)\n  user_id    Int\n  title      String       @db.VarChar(191)\n  passcode   String       @db.VarChar(20)\n  created_at DateTime     @default(now())\n  Chats      Chats[]\n  GroupUsers GroupUsers[]\n\n  @@index([user_id, created_at])\n}\n\nmodel GroupUsers {\n  id         Int       @id @default(autoincrement())\n  group      GroupChat @relation(fields: [group_id], references: [id], onDelete: Cascade)\n  /// @zod.uuid()\n  group_id   String    @db.Uuid\n  name       String\n  created_at DateTime  @default(now())\n}\n\nmodel Chats {\n  /// @zod.uuid()\n  id         String    @id @default(uuid())\n  group      GroupChat @relation(fields: [group_id], references: [id], onDelete: Cascade)\n  /// @zod.uuid()\n  group_id   String    @db.Uuid\n  message    String?\n  name       String\n  file       String?\n  created_at DateTime  @default(now())\n\n  @@index([created_at])\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -28,7 +28,7 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"provider\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"oauth_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"provider\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"oauth_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"chatGroups\",\"kind\":\"object\",\"type\":\"GroupChat\",\"relationName\":\"GroupChatToUser\"}],\"dbName\":null},\"GroupChat\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"GroupChatToUser\"},{\"name\":\"user_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"passcode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"Chats\",\"kind\":\"object\",\"type\":\"Chats\",\"relationName\":\"ChatsToGroupChat\"},{\"name\":\"GroupUsers\",\"kind\":\"object\",\"type\":\"GroupUsers\",\"relationName\":\"GroupChatToGroupUsers\"}],\"dbName\":null},\"GroupUsers\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"group\",\"kind\":\"object\",\"type\":\"GroupChat\",\"relationName\":\"GroupChatToGroupUsers\"},{\"name\":\"group_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Chats\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"group\",\"kind\":\"object\",\"type\":\"GroupChat\",\"relationName\":\"ChatsToGroupChat\"},{\"name\":\"group_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"message\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"file\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -183,6 +183,36 @@ export interface PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.groupChat`: Exposes CRUD operations for the **GroupChat** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GroupChats
+    * const groupChats = await prisma.groupChat.findMany()
+    * ```
+    */
+  get groupChat(): Prisma.GroupChatDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.groupUsers`: Exposes CRUD operations for the **GroupUsers** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GroupUsers
+    * const groupUsers = await prisma.groupUsers.findMany()
+    * ```
+    */
+  get groupUsers(): Prisma.GroupUsersDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.chats`: Exposes CRUD operations for the **Chats** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Chats
+    * const chats = await prisma.chats.findMany()
+    * ```
+    */
+  get chats(): Prisma.ChatsDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {

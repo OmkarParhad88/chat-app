@@ -42,3 +42,18 @@ export { Prisma }
  * 
  */
 export type User = Prisma.UserModel
+/**
+ * Model GroupChat
+ * 
+ */
+export type GroupChat = Prisma.GroupChatModel
+/**
+ * Model GroupUsers
+ * 
+ */
+export type GroupUsers = Prisma.GroupUsersModel
+/**
+ * Model Chats
+ * 
+ */
+export type Chats = Prisma.ChatsModel

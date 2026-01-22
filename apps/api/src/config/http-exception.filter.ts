@@ -1,23 +1,32 @@
 import {
-  ExceptionFilter,
+  Logger,
   Catch,
+  ConflictException,
   ArgumentsHost,
-  HttpException,
 } from '@nestjs/common';
-import { Request, Response } from 'express';
+import { ZodError } from 'zod';
+import { ZodValidationException } from 'nestjs-zod';
+import { BaseExceptionFilter } from '@nestjs/core';
+import { Prisma } from '../generated/prisma/client';
+import { NotFoundException } from '@nestjs/common';
 
-@Catch(HttpException)
-export class HttpExceptionFilter implements ExceptionFilter {
-  catch(exception: HttpException, host: ArgumentsHost) {
-    const ctx = host.switchToHttp();
-    const response = ctx.getResponse<Response>();
-    const request = ctx.getRequest<Request>();
-    const status = exception.getStatus();
+@Catch(ZodValidationException, Prisma.PrismaClientKnownRequestError)
+export class HttpExceptionFilter extends BaseExceptionFilter {
+  private readonly logger = new Logger(HttpExceptionFilter.name);
+  catch(
+    exception: ZodValidationException | Prisma.PrismaClientKnownRequestError,
+    host: ArgumentsHost,
+  ) {
+    if (exception instanceof ZodValidationException) {
+      const error = exception.getZodError() as ZodError;
+      throw new ConflictException(error.issues);
+    }
 
-    response.status(status).json({
-      statusCode: status,
-      timestamp: new Date().toISOString(),
-      path: request.url,
-    });
+    if (exception instanceof Prisma.PrismaClientKnownRequestError) {
+      if (exception.code === 'P2025') {
+        throw new NotFoundException([exception.meta]);
+      }
+    }
+    super.catch(exception, host);
   }
 }
