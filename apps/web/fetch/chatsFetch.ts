@@ -1,12 +1,11 @@
-import { CHATS_URL } from "@/lib/apiAuthRoutes";
+import { CHAT_URL } from "@/lib/apiAuthRoutes";
 
 export async function fetchChats(groupId: string) {
-  const res = await fetch(`${CHATS_URL}/${groupId}`, {
+  const res = await fetch(`${CHAT_URL}/${groupId}`, {
     cache: "no-cache",
   });
 
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
   const response = await res.json();

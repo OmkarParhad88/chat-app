@@ -18,6 +18,9 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
+      "@/*": [
+        "src/*"
+      ],
       "@prisma-zod/*": [
         "./src/generated/zod/schemas/*"
       ],
@@ -25,5 +28,12 @@
         "./src/generated/prisma/*"
       ]
     }
-  }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

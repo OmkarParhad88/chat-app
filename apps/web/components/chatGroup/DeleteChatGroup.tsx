@@ -12,7 +12,7 @@ import {
   AlertDialogTitle,
 } from "@workspace/ui/components/alert-dialog";
 import axios from "axios";
-import { CHAT_GROUP } from "@/lib/apiAuthRoutes";
+import { GROUP_CHAT_URL } from "@/lib/apiAuthRoutes";
 import { toast } from "sonner";
 import { clearCache } from "@/actions/common";
 
@@ -33,7 +33,7 @@ export default function DeleteChatGroup({
   const deleteChatGroup = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.delete(`${CHAT_GROUP}/${groupId}`, {
+      const { data } = await axios.delete(`${GROUP_CHAT_URL}/${groupId}`, {
         headers: {
           Authorization: token,
         },

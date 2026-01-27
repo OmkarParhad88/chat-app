@@ -10,7 +10,7 @@ export class AuthService {
   constructor(
     private userService: UserService,
     private jwtService: JwtService,
-  ) { }
+  ) {}
 
   async login(loginDto: CreateUserDto) {
     const findUser = await this.userService.user({

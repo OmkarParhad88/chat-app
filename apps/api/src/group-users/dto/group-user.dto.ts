@@ -1,11 +1,11 @@
 import { createZodDto } from 'nestjs-zod';
-import { GroupUsersWhereInputObjectSchema } from '@prisma-zod/objects/GroupUsersWhereInput.schema';
-import { GroupUsersCreateInputObjectSchema } from '@prisma-zod/objects/GroupUsersCreateInput.schema';
+import { GroupUserWhereInputObjectZodSchema } from '@prisma-zod/objects/GroupUserWhereInput.schema';
+import { GroupUserCreateInputObjectZodSchema } from '@prisma-zod/objects/GroupUserCreateInput.schema';
 
-export class GroupUsersWhereInputDto extends createZodDto(
-  GroupUsersWhereInputObjectSchema,
+export class GroupUserWhereInputDto extends createZodDto(
+  GroupUserWhereInputObjectZodSchema,
 ) { }
 
 export class CreateGroupUserDto extends createZodDto(
-  GroupUsersCreateInputObjectSchema,
+  GroupUserCreateInputObjectZodSchema,
 ) { }

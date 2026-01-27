@@ -8,15 +8,15 @@ import { IntFilterObjectSchema } from '@prisma-zod/objects/IntFilter.schema';
 
 export class CreateGroupChatDto extends createZodDto(
   GroupChatCreateInputObjectZodSchema.omit({ created_at: true }),
-) { }
+) {}
 
 export class UpdateGroupChatDto extends createZodDto(
   GroupChatUpdateInputObjectZodSchema.omit({ created_at: true }),
-) { }
+) {}
 
 export class GroupChatWhereUniqueDto extends createZodDto(
   GroupChatWhereUniqueInputObjectZodSchema,
-) { }
+) {}
 
 export class GroupChatWhereInputDto extends createZodDto(
   GroupChatWhereInputObjectZodSchema.extend({
@@ -24,4 +24,4 @@ export class GroupChatWhereInputDto extends createZodDto(
       .union([z.lazy(() => IntFilterObjectSchema), z.coerce.number().int()])
       .optional(),
   }),
-) { }
+) {}

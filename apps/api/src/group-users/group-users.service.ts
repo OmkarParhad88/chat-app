@@ -1,19 +1,21 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
-import { GroupUsers, Prisma } from '../generated/prisma/client';
+import { GroupUser, Prisma } from '../generated/prisma/client';
 
 @Injectable()
 export class GroupUsersService {
   constructor(private prisma: PrismaService) { }
-  findGUsersByGId(where: Prisma.GroupUsersWhereInput): Promise<GroupUsers[]> {
-    return this.prisma.groupUsers.findMany({
+  async findGUsersBy(where: Prisma.GroupUserWhereInput): Promise<GroupUser[]> {
+    const users = await this.prisma.groupUser.findMany({
       where,
     });
+    return users;
   }
 
-  create(data: Prisma.GroupUsersCreateInput): Promise<GroupUsers> {
-    return this.prisma.groupUsers.create({
+  async create(data: Prisma.GroupUserCreateInput): Promise<GroupUser> {
+    const user = await this.prisma.groupUser.create({
       data,
     });
+    return user;
   }
 }

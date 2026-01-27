@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { AuthModule } from './auth/auth.module';
@@ -37,5 +36,4 @@ import { GroupUsersModule } from './group-users/group-users.module';
     },
   ],
 })
-// eslint-disable-next-line prettier/prettier
 export class AppModule {}

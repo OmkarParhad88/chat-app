@@ -53,8 +53,8 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   GroupChat: 'GroupChat',
-  GroupUsers: 'GroupUsers',
-  Chats: 'Chats'
+  GroupUser: 'GroupUser',
+  Chat: 'Chat'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -63,12 +63,12 @@ export type ModelName = (typeof ModelName)[keyof typeof ModelName]
  * Enums
  */
 
-export const TransactionIsolationLevel = {
+export const TransactionIsolationLevel = runtime.makeStrictEnum({
   ReadUncommitted: 'ReadUncommitted',
   ReadCommitted: 'ReadCommitted',
   RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
-} as const
+} as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
@@ -97,17 +97,17 @@ export const GroupChatScalarFieldEnum = {
 export type GroupChatScalarFieldEnum = (typeof GroupChatScalarFieldEnum)[keyof typeof GroupChatScalarFieldEnum]
 
 
-export const GroupUsersScalarFieldEnum = {
+export const GroupUserScalarFieldEnum = {
   id: 'id',
   group_id: 'group_id',
   name: 'name',
   created_at: 'created_at'
 } as const
 
-export type GroupUsersScalarFieldEnum = (typeof GroupUsersScalarFieldEnum)[keyof typeof GroupUsersScalarFieldEnum]
+export type GroupUserScalarFieldEnum = (typeof GroupUserScalarFieldEnum)[keyof typeof GroupUserScalarFieldEnum]
 
 
-export const ChatsScalarFieldEnum = {
+export const ChatScalarFieldEnum = {
   id: 'id',
   group_id: 'group_id',
   message: 'message',
@@ -116,7 +116,7 @@ export const ChatsScalarFieldEnum = {
   created_at: 'created_at'
 } as const
 
-export type ChatsScalarFieldEnum = (typeof ChatsScalarFieldEnum)[keyof typeof ChatsScalarFieldEnum]
+export type ChatScalarFieldEnum = (typeof ChatScalarFieldEnum)[keyof typeof ChatScalarFieldEnum]
 
 
 export const SortOrder = {

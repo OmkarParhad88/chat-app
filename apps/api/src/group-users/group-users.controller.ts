@@ -1,21 +1,27 @@
-import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Query } from '@nestjs/common';
 import { GroupUsersService } from './group-users.service';
 import {
-  GroupUsersWhereInputDto,
+  GroupUserWhereInputDto,
   CreateGroupUserDto,
 } from './dto/group-user.dto';
 
-@Controller('group-users')
+@Controller('group-user')
 export class GroupUsersController {
-  constructor(private readonly groupUsersService: GroupUsersService) {}
+  constructor(private readonly groupUsersService: GroupUsersService) { }
 
   @Post()
-  create(@Body() createGroupUserDto: CreateGroupUserDto) {
-    return this.groupUsersService.create(createGroupUserDto);
+  async create(@Body() createGroupUserDto: CreateGroupUserDto) {
+    const user = await this.groupUsersService.create(createGroupUserDto);
+    return { message: 'User created successfully', data: user };
   }
 
   @Get()
-  findGUsersByGId(@Query() groupUsersWhereInputDto: GroupUsersWhereInputDto) {
-    return this.groupUsersService.findGUsersByGId(groupUsersWhereInputDto);
+  async findGUsersByGId(
+    @Query() groupUserWhereInputDto: GroupUserWhereInputDto,
+  ) {
+    const users = await this.groupUsersService.findGUsersBy(
+      groupUserWhereInputDto,
+    );
+    return { message: 'Users fetched successfully', data: users };
   }
 }

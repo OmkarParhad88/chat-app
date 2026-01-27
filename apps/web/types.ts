@@ -17,7 +17,11 @@ export type GroupChatUserType = {
 export type MessageType = {
   id: string;
   message: string;
-  group_id: string;
+  group: {
+    connect: {
+      id: string;
+    };
+  };
   name: string;
   created_at: string;
 };

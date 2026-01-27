@@ -4,7 +4,7 @@ import { revalidateTag, revalidatePath } from "next/cache";
 import { getServerSession } from "next-auth";
 import axios, { AxiosError } from "axios";
 import { authOptions, CustomSession } from "../app/api/auth/[...nextauth]/options";
-import { CHAT_GROUP } from "@/lib/apiAuthRoutes";
+import { GROUP_CHAT_URL } from "@/lib/apiAuthRoutes";
 
 export type ActionState = {
   status?: number | string;
@@ -20,7 +20,7 @@ export async function createChat(prevState: ActionState, formData: FormData) {
   const passcode = formData.get("passcode");
 
   try {
-    const { data } = await axios.post(CHAT_GROUP, {
+    const { data } = await axios.post(GROUP_CHAT_URL, {
       user: {
         connect: {
           id: Number(session?.user?.id)
@@ -69,7 +69,7 @@ export async function updateChat(prevState: ActionState, formData: FormData) {
   const id = formData.get("id");
 
   try {
-    const { data } = await axios.put(`${CHAT_GROUP}/${id}`, {
+    const { data } = await axios.put(`${GROUP_CHAT_URL}/${id}`, {
       title: title,
       passcode: passcode
     }, {

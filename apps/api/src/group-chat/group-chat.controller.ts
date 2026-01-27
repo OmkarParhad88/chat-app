@@ -21,11 +21,11 @@ import {
 } from './dto/group-chat.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 
-@UseGuards(AuthGuard)
 @Controller('group-chat')
 export class GroupChatController {
   constructor(private readonly groupChatService: GroupChatService) { }
 
+  @UseGuards(AuthGuard)
   @HttpCode(HttpStatus.CREATED)
   @Post()
   async create(@Body() createGroupChatDto: CreateGroupChatDto) {
@@ -33,6 +33,7 @@ export class GroupChatController {
     return { message: 'Group chart has been created', data: group };
   }
 
+  @HttpCode(HttpStatus.OK)
   @Get(':id')
   async findGChatByGroupId(@Param() { id }: GroupChatWhereUniqueDto) {
     const group = await this.groupChatService.findGChatByGroupId({
@@ -45,6 +46,7 @@ export class GroupChatController {
     return { message: 'Success', data: group };
   }
 
+  @UseGuards(AuthGuard)
   @Get()
   async findGChats(@Query() data: GroupChatWhereInputDto) {
     const group = await this.groupChatService.findGChatsByUserId(data);
@@ -70,6 +72,7 @@ export class GroupChatController {
     return { message: 'Group chat has been updated', data: group };
   }
 
+  @UseGuards(AuthGuard)
   @Delete(':id')
   async delete(@Param() { id }: GroupChatWhereUniqueDto) {
     const group = await this.groupChatService.delete({ id });

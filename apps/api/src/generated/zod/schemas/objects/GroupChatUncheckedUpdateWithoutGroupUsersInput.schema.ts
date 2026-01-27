@@ -3,7 +3,7 @@ import type { Prisma } from '../../../prisma/client';
 import { StringFieldUpdateOperationsInputObjectSchema as StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
 import { IntFieldUpdateOperationsInputObjectSchema as IntFieldUpdateOperationsInputObjectSchema } from './IntFieldUpdateOperationsInput.schema';
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
-import { ChatsUncheckedUpdateManyWithoutGroupNestedInputObjectSchema as ChatsUncheckedUpdateManyWithoutGroupNestedInputObjectSchema } from './ChatsUncheckedUpdateManyWithoutGroupNestedInput.schema'
+import { ChatUncheckedUpdateManyWithoutGroupNestedInputObjectSchema as ChatUncheckedUpdateManyWithoutGroupNestedInputObjectSchema } from './ChatUncheckedUpdateManyWithoutGroupNestedInput.schema'
 
 const makeSchema = () => z.object({
   id: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
@@ -11,7 +11,7 @@ const makeSchema = () => z.object({
   title: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
   passcode: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
   created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  Chats: z.lazy(() => ChatsUncheckedUpdateManyWithoutGroupNestedInputObjectSchema).optional()
+  Chats: z.lazy(() => ChatUncheckedUpdateManyWithoutGroupNestedInputObjectSchema).optional()
 }).strict();
 export const GroupChatUncheckedUpdateWithoutGroupUsersInputObjectSchema: z.ZodType<Prisma.GroupChatUncheckedUpdateWithoutGroupUsersInput> = makeSchema() as unknown as z.ZodType<Prisma.GroupChatUncheckedUpdateWithoutGroupUsersInput>;
 export const GroupChatUncheckedUpdateWithoutGroupUsersInputObjectZodSchema = makeSchema();

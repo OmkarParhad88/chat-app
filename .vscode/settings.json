@@ -1,3 +1,21 @@
 {
-  "tailwindCSS.experimental.configFile": "packages/ui/src/styles/globals.css"
+  "tailwindCSS.experimental.configFile": "packages/ui/src/styles/globals.css",
+  "dbcode.connections": [
+    {
+      "connectionId": "mVkIAL_ytsMobf6GLbNb5",
+      "name": "postgres",
+      "driver": "postgres",
+      "connectionType": "host",
+      "host": "localhost",
+      "port": 5432,
+      "ssl": false,
+      "authMethod": "password",
+      "username": "postgres",
+      "password": "",
+      "savePassword": "secretStorage",
+      "readOnly": false,
+      "postConnectionSqlType": "inline",
+      "connectionTimeout": 30
+    }
+  ]
 }

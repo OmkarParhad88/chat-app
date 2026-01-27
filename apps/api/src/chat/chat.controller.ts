@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { ChatService } from './chat.service';
 import { CreateChatDto } from './dto/chat.dto';
 
@@ -19,13 +11,9 @@ export class ChatController {
     return this.chatService.create(createChatDto);
   }
 
-  @Get()
-  findAll() {
-    return this.chatService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.chatService.findOne(+id);
+  @Get(':groupId')
+  async findByGroupId(@Param('groupId') groupId: string) {
+    const chats = await this.chatService.findByGroupId({ group_id: groupId });
+    return { message: 'Chats fetched successfully', data: chats };
   }
 }

@@ -6,8 +6,8 @@ import { StringFilterObjectSchema as StringFilterObjectSchema } from './StringFi
 import { DateTimeFilterObjectSchema as DateTimeFilterObjectSchema } from './DateTimeFilter.schema';
 import { UserScalarRelationFilterObjectSchema as UserScalarRelationFilterObjectSchema } from './UserScalarRelationFilter.schema';
 import { UserWhereInputObjectSchema as UserWhereInputObjectSchema } from './UserWhereInput.schema';
-import { ChatsListRelationFilterObjectSchema as ChatsListRelationFilterObjectSchema } from './ChatsListRelationFilter.schema';
-import { GroupUsersListRelationFilterObjectSchema as GroupUsersListRelationFilterObjectSchema } from './GroupUsersListRelationFilter.schema'
+import { ChatListRelationFilterObjectSchema as ChatListRelationFilterObjectSchema } from './ChatListRelationFilter.schema';
+import { GroupUserListRelationFilterObjectSchema as GroupUserListRelationFilterObjectSchema } from './GroupUserListRelationFilter.schema'
 
 const groupchatwhereinputSchema = z.object({
   AND: z.union([z.lazy(() => GroupChatWhereInputObjectSchema), z.lazy(() => GroupChatWhereInputObjectSchema).array()]).optional(),
@@ -19,8 +19,8 @@ const groupchatwhereinputSchema = z.object({
   passcode: z.union([z.lazy(() => StringFilterObjectSchema), z.string().max(20)]).optional(),
   created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   user: z.union([z.lazy(() => UserScalarRelationFilterObjectSchema), z.lazy(() => UserWhereInputObjectSchema)]).optional(),
-  Chats: z.lazy(() => ChatsListRelationFilterObjectSchema).optional(),
-  GroupUsers: z.lazy(() => GroupUsersListRelationFilterObjectSchema).optional()
+  Chats: z.lazy(() => ChatListRelationFilterObjectSchema).optional(),
+  GroupUsers: z.lazy(() => GroupUserListRelationFilterObjectSchema).optional()
 }).strict();
 export const GroupChatWhereInputObjectSchema: z.ZodType<Prisma.GroupChatWhereInput> = groupchatwhereinputSchema as unknown as z.ZodType<Prisma.GroupChatWhereInput>;
 export const GroupChatWhereInputObjectZodSchema = groupchatwhereinputSchema;

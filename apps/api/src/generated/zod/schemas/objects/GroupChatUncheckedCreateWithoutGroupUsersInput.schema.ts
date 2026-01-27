@@ -1,6 +1,6 @@
 import * as z from 'zod';
 import type { Prisma } from '../../../prisma/client';
-import { ChatsUncheckedCreateNestedManyWithoutGroupInputObjectSchema as ChatsUncheckedCreateNestedManyWithoutGroupInputObjectSchema } from './ChatsUncheckedCreateNestedManyWithoutGroupInput.schema'
+import { ChatUncheckedCreateNestedManyWithoutGroupInputObjectSchema as ChatUncheckedCreateNestedManyWithoutGroupInputObjectSchema } from './ChatUncheckedCreateNestedManyWithoutGroupInput.schema'
 
 const makeSchema = () => z.object({
   id: z.string().optional(),
@@ -8,7 +8,7 @@ const makeSchema = () => z.object({
   title: z.string(),
   passcode: z.string(),
   created_at: z.coerce.date().optional(),
-  Chats: z.lazy(() => ChatsUncheckedCreateNestedManyWithoutGroupInputObjectSchema).optional()
+  Chats: z.lazy(() => ChatUncheckedCreateNestedManyWithoutGroupInputObjectSchema).optional()
 }).strict();
 export const GroupChatUncheckedCreateWithoutGroupUsersInputObjectSchema: z.ZodType<Prisma.GroupChatUncheckedCreateWithoutGroupUsersInput> = makeSchema() as unknown as z.ZodType<Prisma.GroupChatUncheckedCreateWithoutGroupUsersInput>;
 export const GroupChatUncheckedCreateWithoutGroupUsersInputObjectZodSchema = makeSchema();

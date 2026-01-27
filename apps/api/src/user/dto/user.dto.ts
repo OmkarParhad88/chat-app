@@ -3,4 +3,4 @@ import { UserCreateInputObjectZodSchema } from '@prisma-zod/objects/UserCreateIn
 
 export class CreateUserDto extends createZodDto(
   UserCreateInputObjectZodSchema,
-) { }
+) {}

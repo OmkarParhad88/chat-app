@@ -4,7 +4,7 @@ import { GroupChat, Prisma } from '../generated/prisma/client';
 
 @Injectable()
 export class GroupChatService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
   async store(data: Prisma.GroupChatCreateInput): Promise<GroupChat | null> {
     return await this.prisma.groupChat.create({
       data,

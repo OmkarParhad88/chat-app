@@ -34,19 +34,19 @@ model User {
 
 model GroupChat {
   /// @zod.uuid()
-  id         String       @id @default(uuid()) @db.Uuid
-  user       User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  id         String      @id @default(uuid()) @db.Uuid
+  user       User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
   user_id    Int
-  title      String       @db.VarChar(191)
-  passcode   String       @db.VarChar(20)
-  created_at DateTime     @default(now())
-  Chats      Chats[]
-  GroupUsers GroupUsers[]
+  title      String      @db.VarChar(191)
+  passcode   String      @db.VarChar(20)
+  created_at DateTime    @default(now())
+  Chats      Chat[]
+  GroupUsers GroupUser[]
 
   @@index([user_id, created_at])
 }
 
-model GroupUsers {
+model GroupUser {
   id         Int       @id @default(autoincrement())
   group      GroupChat @relation(fields: [group_id], references: [id], onDelete: Cascade)
   /// @zod.uuid()
@@ -55,7 +55,7 @@ model GroupUsers {
   created_at DateTime  @default(now())
 }
 
-model Chats {
+model Chat {
   /// @zod.uuid()
   id         String    @id @default(uuid())
   group      GroupChat @relation(fields: [group_id], references: [id], onDelete: Cascade)
