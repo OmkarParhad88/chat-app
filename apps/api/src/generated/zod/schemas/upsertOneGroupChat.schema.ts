@@ -8,6 +8,34 @@ import { GroupChatUncheckedCreateInputObjectSchema as GroupChatUncheckedCreateIn
 import { GroupChatUpdateInputObjectSchema as GroupChatUpdateInputObjectSchema } from './objects/GroupChatUpdateInput.schema';
 import { GroupChatUncheckedUpdateInputObjectSchema as GroupChatUncheckedUpdateInputObjectSchema } from './objects/GroupChatUncheckedUpdateInput.schema';
 
-export const GroupChatUpsertOneSchema: z.ZodType<Prisma.GroupChatUpsertArgs> = z.object({ select: GroupChatSelectObjectSchema.optional(), include: GroupChatIncludeObjectSchema.optional(), where: GroupChatWhereUniqueInputObjectSchema, create: z.union([ GroupChatCreateInputObjectSchema, GroupChatUncheckedCreateInputObjectSchema ]), update: z.union([ GroupChatUpdateInputObjectSchema, GroupChatUncheckedUpdateInputObjectSchema ]) }).strict() as unknown as z.ZodType<Prisma.GroupChatUpsertArgs>;
+export const GroupChatUpsertOneSchema: z.ZodType<Prisma.GroupChatUpsertArgs> = z
+  .object({
+    select: GroupChatSelectObjectSchema.optional(),
+    include: GroupChatIncludeObjectSchema.optional(),
+    where: GroupChatWhereUniqueInputObjectSchema,
+    create: z.union([
+      GroupChatCreateInputObjectSchema,
+      GroupChatUncheckedCreateInputObjectSchema,
+    ]),
+    update: z.union([
+      GroupChatUpdateInputObjectSchema,
+      GroupChatUncheckedUpdateInputObjectSchema,
+    ]),
+  })
+  .strict() as unknown as z.ZodType<Prisma.GroupChatUpsertArgs>;
 
-export const GroupChatUpsertOneZodSchema = z.object({ select: GroupChatSelectObjectSchema.optional(), include: GroupChatIncludeObjectSchema.optional(), where: GroupChatWhereUniqueInputObjectSchema, create: z.union([ GroupChatCreateInputObjectSchema, GroupChatUncheckedCreateInputObjectSchema ]), update: z.union([ GroupChatUpdateInputObjectSchema, GroupChatUncheckedUpdateInputObjectSchema ]) }).strict();
+export const GroupChatUpsertOneZodSchema = z
+  .object({
+    select: GroupChatSelectObjectSchema.optional(),
+    include: GroupChatIncludeObjectSchema.optional(),
+    where: GroupChatWhereUniqueInputObjectSchema,
+    create: z.union([
+      GroupChatCreateInputObjectSchema,
+      GroupChatUncheckedCreateInputObjectSchema,
+    ]),
+    update: z.union([
+      GroupChatUpdateInputObjectSchema,
+      GroupChatUncheckedUpdateInputObjectSchema,
+    ]),
+  })
+  .strict();

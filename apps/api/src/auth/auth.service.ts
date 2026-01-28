@@ -1,9 +1,9 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { CreateUserDto } from '../user/dto/user.dto';
-import { UserService } from '../user/user.service';
+import { Injectable } from '@nestjs/common';
+import { CreateUserDto } from '@/user/dto/user.dto';
+import { UserService } from '@/user/user.service';
 import { JwtService } from '@nestjs/jwt';
-import { User } from 'src/generated/prisma/client';
-import { UserCreateInput } from 'src/generated/prisma/models';
+import { User } from '@prisma/prisma/client';
+import { UserCreateInput } from '@prisma/prisma/models';
 
 @Injectable()
 export class AuthService {

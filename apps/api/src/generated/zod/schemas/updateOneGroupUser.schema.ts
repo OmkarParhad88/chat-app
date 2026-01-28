@@ -6,6 +6,26 @@ import { GroupUserUpdateInputObjectSchema as GroupUserUpdateInputObjectSchema } 
 import { GroupUserUncheckedUpdateInputObjectSchema as GroupUserUncheckedUpdateInputObjectSchema } from './objects/GroupUserUncheckedUpdateInput.schema';
 import { GroupUserWhereUniqueInputObjectSchema as GroupUserWhereUniqueInputObjectSchema } from './objects/GroupUserWhereUniqueInput.schema';
 
-export const GroupUserUpdateOneSchema: z.ZodType<Prisma.GroupUserUpdateArgs> = z.object({ select: GroupUserSelectObjectSchema.optional(), include: GroupUserIncludeObjectSchema.optional(), data: z.union([GroupUserUpdateInputObjectSchema, GroupUserUncheckedUpdateInputObjectSchema]), where: GroupUserWhereUniqueInputObjectSchema }).strict() as unknown as z.ZodType<Prisma.GroupUserUpdateArgs>;
+export const GroupUserUpdateOneSchema: z.ZodType<Prisma.GroupUserUpdateArgs> = z
+  .object({
+    select: GroupUserSelectObjectSchema.optional(),
+    include: GroupUserIncludeObjectSchema.optional(),
+    data: z.union([
+      GroupUserUpdateInputObjectSchema,
+      GroupUserUncheckedUpdateInputObjectSchema,
+    ]),
+    where: GroupUserWhereUniqueInputObjectSchema,
+  })
+  .strict() as unknown as z.ZodType<Prisma.GroupUserUpdateArgs>;
 
-export const GroupUserUpdateOneZodSchema = z.object({ select: GroupUserSelectObjectSchema.optional(), include: GroupUserIncludeObjectSchema.optional(), data: z.union([GroupUserUpdateInputObjectSchema, GroupUserUncheckedUpdateInputObjectSchema]), where: GroupUserWhereUniqueInputObjectSchema }).strict();
+export const GroupUserUpdateOneZodSchema = z
+  .object({
+    select: GroupUserSelectObjectSchema.optional(),
+    include: GroupUserIncludeObjectSchema.optional(),
+    data: z.union([
+      GroupUserUpdateInputObjectSchema,
+      GroupUserUncheckedUpdateInputObjectSchema,
+    ]),
+    where: GroupUserWhereUniqueInputObjectSchema,
+  })
+  .strict();

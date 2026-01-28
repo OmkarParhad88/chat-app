@@ -9,22 +9,70 @@ import { GroupUserScalarFieldEnumSchema } from './enums/GroupUserScalarFieldEnum
 // Select schema needs to be in file to prevent circular imports
 //------------------------------------------------------
 
-export const GroupUserFindManySelectSchema: z.ZodType<Prisma.GroupUserSelect> = z.object({
+export const GroupUserFindManySelectSchema: z.ZodType<Prisma.GroupUserSelect> =
+  z
+    .object({
+      id: z.boolean().optional(),
+      group: z.boolean().optional(),
+      group_id: z.boolean().optional(),
+      name: z.boolean().optional(),
+      created_at: z.boolean().optional(),
+    })
+    .strict() as unknown as z.ZodType<Prisma.GroupUserSelect>;
+
+export const GroupUserFindManySelectZodSchema = z
+  .object({
     id: z.boolean().optional(),
     group: z.boolean().optional(),
     group_id: z.boolean().optional(),
     name: z.boolean().optional(),
-    created_at: z.boolean().optional()
-  }).strict() as unknown as z.ZodType<Prisma.GroupUserSelect>;
+    created_at: z.boolean().optional(),
+  })
+  .strict();
 
-export const GroupUserFindManySelectZodSchema = z.object({
-    id: z.boolean().optional(),
-    group: z.boolean().optional(),
-    group_id: z.boolean().optional(),
-    name: z.boolean().optional(),
-    created_at: z.boolean().optional()
-  }).strict();
+export const GroupUserFindManySchema: z.ZodType<Prisma.GroupUserFindManyArgs> =
+  z
+    .object({
+      select: GroupUserFindManySelectSchema.optional(),
+      include: z.lazy(() => GroupUserIncludeObjectSchema.optional()),
+      orderBy: z
+        .union([
+          GroupUserOrderByWithRelationInputObjectSchema,
+          GroupUserOrderByWithRelationInputObjectSchema.array(),
+        ])
+        .optional(),
+      where: GroupUserWhereInputObjectSchema.optional(),
+      cursor: GroupUserWhereUniqueInputObjectSchema.optional(),
+      take: z.number().optional(),
+      skip: z.number().optional(),
+      distinct: z
+        .union([
+          GroupUserScalarFieldEnumSchema,
+          GroupUserScalarFieldEnumSchema.array(),
+        ])
+        .optional(),
+    })
+    .strict() as unknown as z.ZodType<Prisma.GroupUserFindManyArgs>;
 
-export const GroupUserFindManySchema: z.ZodType<Prisma.GroupUserFindManyArgs> = z.object({ select: GroupUserFindManySelectSchema.optional(), include: z.lazy(() => GroupUserIncludeObjectSchema.optional()), orderBy: z.union([GroupUserOrderByWithRelationInputObjectSchema, GroupUserOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupUserWhereInputObjectSchema.optional(), cursor: GroupUserWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([GroupUserScalarFieldEnumSchema, GroupUserScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.GroupUserFindManyArgs>;
-
-export const GroupUserFindManyZodSchema = z.object({ select: GroupUserFindManySelectSchema.optional(), include: z.lazy(() => GroupUserIncludeObjectSchema.optional()), orderBy: z.union([GroupUserOrderByWithRelationInputObjectSchema, GroupUserOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupUserWhereInputObjectSchema.optional(), cursor: GroupUserWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([GroupUserScalarFieldEnumSchema, GroupUserScalarFieldEnumSchema.array()]).optional() }).strict();
+export const GroupUserFindManyZodSchema = z
+  .object({
+    select: GroupUserFindManySelectSchema.optional(),
+    include: z.lazy(() => GroupUserIncludeObjectSchema.optional()),
+    orderBy: z
+      .union([
+        GroupUserOrderByWithRelationInputObjectSchema,
+        GroupUserOrderByWithRelationInputObjectSchema.array(),
+      ])
+      .optional(),
+    where: GroupUserWhereInputObjectSchema.optional(),
+    cursor: GroupUserWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    distinct: z
+      .union([
+        GroupUserScalarFieldEnumSchema,
+        GroupUserScalarFieldEnumSchema.array(),
+      ])
+      .optional(),
+  })
+  .strict();

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
-import { GroupChat, Prisma } from '../generated/prisma/client';
+import { GroupChat, Prisma } from '@prisma/prisma/client';
 
 @Injectable()
 export class GroupChatService {

@@ -25,7 +25,7 @@
         "./src/generated/zod/schemas/*"
       ],
       "@prisma/*": [
-        "./src/generated/prisma/*"
+        "./src/generated/*"
       ]
     }
   },

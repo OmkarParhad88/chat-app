@@ -7,7 +7,7 @@ import {
 import { ZodError } from 'zod';
 import { ZodValidationException } from 'nestjs-zod';
 import { BaseExceptionFilter } from '@nestjs/core';
-import { Prisma } from '../generated/prisma/client';
+import { Prisma } from '@prisma/prisma/client';
 import { NotFoundException } from '@nestjs/common';
 
 @Catch(ZodValidationException, Prisma.PrismaClientKnownRequestError)

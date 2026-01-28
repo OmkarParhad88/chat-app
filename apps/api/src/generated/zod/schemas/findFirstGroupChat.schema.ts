@@ -9,7 +9,23 @@ import { GroupChatScalarFieldEnumSchema } from './enums/GroupChatScalarFieldEnum
 // Select schema needs to be in file to prevent circular imports
 //------------------------------------------------------
 
-export const GroupChatFindFirstSelectSchema: z.ZodType<Prisma.GroupChatSelect> = z.object({
+export const GroupChatFindFirstSelectSchema: z.ZodType<Prisma.GroupChatSelect> =
+  z
+    .object({
+      id: z.boolean().optional(),
+      user: z.boolean().optional(),
+      user_id: z.boolean().optional(),
+      title: z.boolean().optional(),
+      passcode: z.boolean().optional(),
+      created_at: z.boolean().optional(),
+      Chats: z.boolean().optional(),
+      GroupUsers: z.boolean().optional(),
+      _count: z.boolean().optional(),
+    })
+    .strict() as unknown as z.ZodType<Prisma.GroupChatSelect>;
+
+export const GroupChatFindFirstSelectZodSchema = z
+  .object({
     id: z.boolean().optional(),
     user: z.boolean().optional(),
     user_id: z.boolean().optional(),
@@ -18,21 +34,53 @@ export const GroupChatFindFirstSelectSchema: z.ZodType<Prisma.GroupChatSelect> =
     created_at: z.boolean().optional(),
     Chats: z.boolean().optional(),
     GroupUsers: z.boolean().optional(),
-    _count: z.boolean().optional()
-  }).strict() as unknown as z.ZodType<Prisma.GroupChatSelect>;
+    _count: z.boolean().optional(),
+  })
+  .strict();
 
-export const GroupChatFindFirstSelectZodSchema = z.object({
-    id: z.boolean().optional(),
-    user: z.boolean().optional(),
-    user_id: z.boolean().optional(),
-    title: z.boolean().optional(),
-    passcode: z.boolean().optional(),
-    created_at: z.boolean().optional(),
-    Chats: z.boolean().optional(),
-    GroupUsers: z.boolean().optional(),
-    _count: z.boolean().optional()
-  }).strict();
+export const GroupChatFindFirstSchema: z.ZodType<Prisma.GroupChatFindFirstArgs> =
+  z
+    .object({
+      select: GroupChatFindFirstSelectSchema.optional(),
+      include: z.lazy(() => GroupChatIncludeObjectSchema.optional()),
+      orderBy: z
+        .union([
+          GroupChatOrderByWithRelationInputObjectSchema,
+          GroupChatOrderByWithRelationInputObjectSchema.array(),
+        ])
+        .optional(),
+      where: GroupChatWhereInputObjectSchema.optional(),
+      cursor: GroupChatWhereUniqueInputObjectSchema.optional(),
+      take: z.number().optional(),
+      skip: z.number().optional(),
+      distinct: z
+        .union([
+          GroupChatScalarFieldEnumSchema,
+          GroupChatScalarFieldEnumSchema.array(),
+        ])
+        .optional(),
+    })
+    .strict() as unknown as z.ZodType<Prisma.GroupChatFindFirstArgs>;
 
-export const GroupChatFindFirstSchema: z.ZodType<Prisma.GroupChatFindFirstArgs> = z.object({ select: GroupChatFindFirstSelectSchema.optional(), include: z.lazy(() => GroupChatIncludeObjectSchema.optional()), orderBy: z.union([GroupChatOrderByWithRelationInputObjectSchema, GroupChatOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupChatWhereInputObjectSchema.optional(), cursor: GroupChatWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([GroupChatScalarFieldEnumSchema, GroupChatScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.GroupChatFindFirstArgs>;
-
-export const GroupChatFindFirstZodSchema = z.object({ select: GroupChatFindFirstSelectSchema.optional(), include: z.lazy(() => GroupChatIncludeObjectSchema.optional()), orderBy: z.union([GroupChatOrderByWithRelationInputObjectSchema, GroupChatOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupChatWhereInputObjectSchema.optional(), cursor: GroupChatWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([GroupChatScalarFieldEnumSchema, GroupChatScalarFieldEnumSchema.array()]).optional() }).strict();
+export const GroupChatFindFirstZodSchema = z
+  .object({
+    select: GroupChatFindFirstSelectSchema.optional(),
+    include: z.lazy(() => GroupChatIncludeObjectSchema.optional()),
+    orderBy: z
+      .union([
+        GroupChatOrderByWithRelationInputObjectSchema,
+        GroupChatOrderByWithRelationInputObjectSchema.array(),
+      ])
+      .optional(),
+    where: GroupChatWhereInputObjectSchema.optional(),
+    cursor: GroupChatWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    distinct: z
+      .union([
+        GroupChatScalarFieldEnumSchema,
+        GroupChatScalarFieldEnumSchema.array(),
+      ])
+      .optional(),
+  })
+  .strict();

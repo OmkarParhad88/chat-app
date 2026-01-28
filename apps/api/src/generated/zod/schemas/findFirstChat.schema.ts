@@ -9,26 +9,66 @@ import { ChatScalarFieldEnumSchema } from './enums/ChatScalarFieldEnum.schema';
 // Select schema needs to be in file to prevent circular imports
 //------------------------------------------------------
 
-export const ChatFindFirstSelectSchema: z.ZodType<Prisma.ChatSelect> = z.object({
+export const ChatFindFirstSelectSchema: z.ZodType<Prisma.ChatSelect> = z
+  .object({
     id: z.boolean().optional(),
     group: z.boolean().optional(),
     group_id: z.boolean().optional(),
     message: z.boolean().optional(),
     name: z.boolean().optional(),
     file: z.boolean().optional(),
-    created_at: z.boolean().optional()
-  }).strict() as unknown as z.ZodType<Prisma.ChatSelect>;
+    created_at: z.boolean().optional(),
+  })
+  .strict() as unknown as z.ZodType<Prisma.ChatSelect>;
 
-export const ChatFindFirstSelectZodSchema = z.object({
+export const ChatFindFirstSelectZodSchema = z
+  .object({
     id: z.boolean().optional(),
     group: z.boolean().optional(),
     group_id: z.boolean().optional(),
     message: z.boolean().optional(),
     name: z.boolean().optional(),
     file: z.boolean().optional(),
-    created_at: z.boolean().optional()
-  }).strict();
+    created_at: z.boolean().optional(),
+  })
+  .strict();
 
-export const ChatFindFirstSchema: z.ZodType<Prisma.ChatFindFirstArgs> = z.object({ select: ChatFindFirstSelectSchema.optional(), include: z.lazy(() => ChatIncludeObjectSchema.optional()), orderBy: z.union([ChatOrderByWithRelationInputObjectSchema, ChatOrderByWithRelationInputObjectSchema.array()]).optional(), where: ChatWhereInputObjectSchema.optional(), cursor: ChatWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([ChatScalarFieldEnumSchema, ChatScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.ChatFindFirstArgs>;
+export const ChatFindFirstSchema: z.ZodType<Prisma.ChatFindFirstArgs> = z
+  .object({
+    select: ChatFindFirstSelectSchema.optional(),
+    include: z.lazy(() => ChatIncludeObjectSchema.optional()),
+    orderBy: z
+      .union([
+        ChatOrderByWithRelationInputObjectSchema,
+        ChatOrderByWithRelationInputObjectSchema.array(),
+      ])
+      .optional(),
+    where: ChatWhereInputObjectSchema.optional(),
+    cursor: ChatWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    distinct: z
+      .union([ChatScalarFieldEnumSchema, ChatScalarFieldEnumSchema.array()])
+      .optional(),
+  })
+  .strict() as unknown as z.ZodType<Prisma.ChatFindFirstArgs>;
 
-export const ChatFindFirstZodSchema = z.object({ select: ChatFindFirstSelectSchema.optional(), include: z.lazy(() => ChatIncludeObjectSchema.optional()), orderBy: z.union([ChatOrderByWithRelationInputObjectSchema, ChatOrderByWithRelationInputObjectSchema.array()]).optional(), where: ChatWhereInputObjectSchema.optional(), cursor: ChatWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([ChatScalarFieldEnumSchema, ChatScalarFieldEnumSchema.array()]).optional() }).strict();
+export const ChatFindFirstZodSchema = z
+  .object({
+    select: ChatFindFirstSelectSchema.optional(),
+    include: z.lazy(() => ChatIncludeObjectSchema.optional()),
+    orderBy: z
+      .union([
+        ChatOrderByWithRelationInputObjectSchema,
+        ChatOrderByWithRelationInputObjectSchema.array(),
+      ])
+      .optional(),
+    where: ChatWhereInputObjectSchema.optional(),
+    cursor: ChatWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    distinct: z
+      .union([ChatScalarFieldEnumSchema, ChatScalarFieldEnumSchema.array()])
+      .optional(),
+  })
+  .strict();

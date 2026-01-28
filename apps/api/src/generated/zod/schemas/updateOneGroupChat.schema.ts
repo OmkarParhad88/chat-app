@@ -6,6 +6,26 @@ import { GroupChatUpdateInputObjectSchema as GroupChatUpdateInputObjectSchema } 
 import { GroupChatUncheckedUpdateInputObjectSchema as GroupChatUncheckedUpdateInputObjectSchema } from './objects/GroupChatUncheckedUpdateInput.schema';
 import { GroupChatWhereUniqueInputObjectSchema as GroupChatWhereUniqueInputObjectSchema } from './objects/GroupChatWhereUniqueInput.schema';
 
-export const GroupChatUpdateOneSchema: z.ZodType<Prisma.GroupChatUpdateArgs> = z.object({ select: GroupChatSelectObjectSchema.optional(), include: GroupChatIncludeObjectSchema.optional(), data: z.union([GroupChatUpdateInputObjectSchema, GroupChatUncheckedUpdateInputObjectSchema]), where: GroupChatWhereUniqueInputObjectSchema }).strict() as unknown as z.ZodType<Prisma.GroupChatUpdateArgs>;
+export const GroupChatUpdateOneSchema: z.ZodType<Prisma.GroupChatUpdateArgs> = z
+  .object({
+    select: GroupChatSelectObjectSchema.optional(),
+    include: GroupChatIncludeObjectSchema.optional(),
+    data: z.union([
+      GroupChatUpdateInputObjectSchema,
+      GroupChatUncheckedUpdateInputObjectSchema,
+    ]),
+    where: GroupChatWhereUniqueInputObjectSchema,
+  })
+  .strict() as unknown as z.ZodType<Prisma.GroupChatUpdateArgs>;
 
-export const GroupChatUpdateOneZodSchema = z.object({ select: GroupChatSelectObjectSchema.optional(), include: GroupChatIncludeObjectSchema.optional(), data: z.union([GroupChatUpdateInputObjectSchema, GroupChatUncheckedUpdateInputObjectSchema]), where: GroupChatWhereUniqueInputObjectSchema }).strict();
+export const GroupChatUpdateOneZodSchema = z
+  .object({
+    select: GroupChatSelectObjectSchema.optional(),
+    include: GroupChatIncludeObjectSchema.optional(),
+    data: z.union([
+      GroupChatUpdateInputObjectSchema,
+      GroupChatUncheckedUpdateInputObjectSchema,
+    ]),
+    where: GroupChatWhereUniqueInputObjectSchema,
+  })
+  .strict();

@@ -7,14 +7,36 @@ import { UserUpsertWithoutChatGroupsInputObjectSchema as UserUpsertWithoutChatGr
 import { UserWhereUniqueInputObjectSchema as UserWhereUniqueInputObjectSchema } from './UserWhereUniqueInput.schema';
 import { UserUpdateToOneWithWhereWithoutChatGroupsInputObjectSchema as UserUpdateToOneWithWhereWithoutChatGroupsInputObjectSchema } from './UserUpdateToOneWithWhereWithoutChatGroupsInput.schema';
 import { UserUpdateWithoutChatGroupsInputObjectSchema as UserUpdateWithoutChatGroupsInputObjectSchema } from './UserUpdateWithoutChatGroupsInput.schema';
-import { UserUncheckedUpdateWithoutChatGroupsInputObjectSchema as UserUncheckedUpdateWithoutChatGroupsInputObjectSchema } from './UserUncheckedUpdateWithoutChatGroupsInput.schema'
+import { UserUncheckedUpdateWithoutChatGroupsInputObjectSchema as UserUncheckedUpdateWithoutChatGroupsInputObjectSchema } from './UserUncheckedUpdateWithoutChatGroupsInput.schema';
 
-const makeSchema = () => z.object({
-  create: z.union([z.lazy(() => UserCreateWithoutChatGroupsInputObjectSchema), z.lazy(() => UserUncheckedCreateWithoutChatGroupsInputObjectSchema)]).optional(),
-  connectOrCreate: z.lazy(() => UserCreateOrConnectWithoutChatGroupsInputObjectSchema).optional(),
-  upsert: z.lazy(() => UserUpsertWithoutChatGroupsInputObjectSchema).optional(),
-  connect: z.lazy(() => UserWhereUniqueInputObjectSchema).optional(),
-  update: z.union([z.lazy(() => UserUpdateToOneWithWhereWithoutChatGroupsInputObjectSchema), z.lazy(() => UserUpdateWithoutChatGroupsInputObjectSchema), z.lazy(() => UserUncheckedUpdateWithoutChatGroupsInputObjectSchema)]).optional()
-}).strict();
-export const UserUpdateOneRequiredWithoutChatGroupsNestedInputObjectSchema: z.ZodType<Prisma.UserUpdateOneRequiredWithoutChatGroupsNestedInput> = makeSchema() as unknown as z.ZodType<Prisma.UserUpdateOneRequiredWithoutChatGroupsNestedInput>;
-export const UserUpdateOneRequiredWithoutChatGroupsNestedInputObjectZodSchema = makeSchema();
+const makeSchema = () =>
+  z
+    .object({
+      create: z
+        .union([
+          z.lazy(() => UserCreateWithoutChatGroupsInputObjectSchema),
+          z.lazy(() => UserUncheckedCreateWithoutChatGroupsInputObjectSchema),
+        ])
+        .optional(),
+      connectOrCreate: z
+        .lazy(() => UserCreateOrConnectWithoutChatGroupsInputObjectSchema)
+        .optional(),
+      upsert: z
+        .lazy(() => UserUpsertWithoutChatGroupsInputObjectSchema)
+        .optional(),
+      connect: z.lazy(() => UserWhereUniqueInputObjectSchema).optional(),
+      update: z
+        .union([
+          z.lazy(
+            () => UserUpdateToOneWithWhereWithoutChatGroupsInputObjectSchema,
+          ),
+          z.lazy(() => UserUpdateWithoutChatGroupsInputObjectSchema),
+          z.lazy(() => UserUncheckedUpdateWithoutChatGroupsInputObjectSchema),
+        ])
+        .optional(),
+    })
+    .strict();
+export const UserUpdateOneRequiredWithoutChatGroupsNestedInputObjectSchema: z.ZodType<Prisma.UserUpdateOneRequiredWithoutChatGroupsNestedInput> =
+  makeSchema() as unknown as z.ZodType<Prisma.UserUpdateOneRequiredWithoutChatGroupsNestedInput>;
+export const UserUpdateOneRequiredWithoutChatGroupsNestedInputObjectZodSchema =
+  makeSchema();

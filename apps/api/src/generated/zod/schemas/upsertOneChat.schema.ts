@@ -8,6 +8,34 @@ import { ChatUncheckedCreateInputObjectSchema as ChatUncheckedCreateInputObjectS
 import { ChatUpdateInputObjectSchema as ChatUpdateInputObjectSchema } from './objects/ChatUpdateInput.schema';
 import { ChatUncheckedUpdateInputObjectSchema as ChatUncheckedUpdateInputObjectSchema } from './objects/ChatUncheckedUpdateInput.schema';
 
-export const ChatUpsertOneSchema: z.ZodType<Prisma.ChatUpsertArgs> = z.object({ select: ChatSelectObjectSchema.optional(), include: ChatIncludeObjectSchema.optional(), where: ChatWhereUniqueInputObjectSchema, create: z.union([ ChatCreateInputObjectSchema, ChatUncheckedCreateInputObjectSchema ]), update: z.union([ ChatUpdateInputObjectSchema, ChatUncheckedUpdateInputObjectSchema ]) }).strict() as unknown as z.ZodType<Prisma.ChatUpsertArgs>;
+export const ChatUpsertOneSchema: z.ZodType<Prisma.ChatUpsertArgs> = z
+  .object({
+    select: ChatSelectObjectSchema.optional(),
+    include: ChatIncludeObjectSchema.optional(),
+    where: ChatWhereUniqueInputObjectSchema,
+    create: z.union([
+      ChatCreateInputObjectSchema,
+      ChatUncheckedCreateInputObjectSchema,
+    ]),
+    update: z.union([
+      ChatUpdateInputObjectSchema,
+      ChatUncheckedUpdateInputObjectSchema,
+    ]),
+  })
+  .strict() as unknown as z.ZodType<Prisma.ChatUpsertArgs>;
 
-export const ChatUpsertOneZodSchema = z.object({ select: ChatSelectObjectSchema.optional(), include: ChatIncludeObjectSchema.optional(), where: ChatWhereUniqueInputObjectSchema, create: z.union([ ChatCreateInputObjectSchema, ChatUncheckedCreateInputObjectSchema ]), update: z.union([ ChatUpdateInputObjectSchema, ChatUncheckedUpdateInputObjectSchema ]) }).strict();
+export const ChatUpsertOneZodSchema = z
+  .object({
+    select: ChatSelectObjectSchema.optional(),
+    include: ChatIncludeObjectSchema.optional(),
+    where: ChatWhereUniqueInputObjectSchema,
+    create: z.union([
+      ChatCreateInputObjectSchema,
+      ChatUncheckedCreateInputObjectSchema,
+    ]),
+    update: z.union([
+      ChatUpdateInputObjectSchema,
+      ChatUncheckedUpdateInputObjectSchema,
+    ]),
+  })
+  .strict();

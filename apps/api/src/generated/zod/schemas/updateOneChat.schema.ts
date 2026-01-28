@@ -6,6 +6,26 @@ import { ChatUpdateInputObjectSchema as ChatUpdateInputObjectSchema } from './ob
 import { ChatUncheckedUpdateInputObjectSchema as ChatUncheckedUpdateInputObjectSchema } from './objects/ChatUncheckedUpdateInput.schema';
 import { ChatWhereUniqueInputObjectSchema as ChatWhereUniqueInputObjectSchema } from './objects/ChatWhereUniqueInput.schema';
 
-export const ChatUpdateOneSchema: z.ZodType<Prisma.ChatUpdateArgs> = z.object({ select: ChatSelectObjectSchema.optional(), include: ChatIncludeObjectSchema.optional(), data: z.union([ChatUpdateInputObjectSchema, ChatUncheckedUpdateInputObjectSchema]), where: ChatWhereUniqueInputObjectSchema }).strict() as unknown as z.ZodType<Prisma.ChatUpdateArgs>;
+export const ChatUpdateOneSchema: z.ZodType<Prisma.ChatUpdateArgs> = z
+  .object({
+    select: ChatSelectObjectSchema.optional(),
+    include: ChatIncludeObjectSchema.optional(),
+    data: z.union([
+      ChatUpdateInputObjectSchema,
+      ChatUncheckedUpdateInputObjectSchema,
+    ]),
+    where: ChatWhereUniqueInputObjectSchema,
+  })
+  .strict() as unknown as z.ZodType<Prisma.ChatUpdateArgs>;
 
-export const ChatUpdateOneZodSchema = z.object({ select: ChatSelectObjectSchema.optional(), include: ChatIncludeObjectSchema.optional(), data: z.union([ChatUpdateInputObjectSchema, ChatUncheckedUpdateInputObjectSchema]), where: ChatWhereUniqueInputObjectSchema }).strict();
+export const ChatUpdateOneZodSchema = z
+  .object({
+    select: ChatSelectObjectSchema.optional(),
+    include: ChatIncludeObjectSchema.optional(),
+    data: z.union([
+      ChatUpdateInputObjectSchema,
+      ChatUncheckedUpdateInputObjectSchema,
+    ]),
+    where: ChatWhereUniqueInputObjectSchema,
+  })
+  .strict();

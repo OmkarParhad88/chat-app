@@ -12,18 +12,18 @@ import {
   Put,
   Delete,
 } from '@nestjs/common';
-import { GroupChatService } from './group-chat.service';
+import { GroupChatService } from '@/group-chat/group-chat.service';
 import {
   CreateGroupChatDto,
   GroupChatWhereInputDto,
   GroupChatWhereUniqueDto,
   UpdateGroupChatDto,
-} from './dto/group-chat.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
+} from '@/group-chat/dto/group-chat.dto';
+import { AuthGuard } from '@/auth/auth.guard';
 
 @Controller('group-chat')
 export class GroupChatController {
-  constructor(private readonly groupChatService: GroupChatService) { }
+  constructor(private readonly groupChatService: GroupChatService) {}
 
   @UseGuards(AuthGuard)
   @HttpCode(HttpStatus.CREATED)

@@ -5,6 +5,24 @@ import { GroupChatIncludeObjectSchema as GroupChatIncludeObjectSchema } from './
 import { GroupChatCreateInputObjectSchema as GroupChatCreateInputObjectSchema } from './objects/GroupChatCreateInput.schema';
 import { GroupChatUncheckedCreateInputObjectSchema as GroupChatUncheckedCreateInputObjectSchema } from './objects/GroupChatUncheckedCreateInput.schema';
 
-export const GroupChatCreateOneSchema: z.ZodType<Prisma.GroupChatCreateArgs> = z.object({ select: GroupChatSelectObjectSchema.optional(), include: GroupChatIncludeObjectSchema.optional(), data: z.union([GroupChatCreateInputObjectSchema, GroupChatUncheckedCreateInputObjectSchema]) }).strict() as unknown as z.ZodType<Prisma.GroupChatCreateArgs>;
+export const GroupChatCreateOneSchema: z.ZodType<Prisma.GroupChatCreateArgs> = z
+  .object({
+    select: GroupChatSelectObjectSchema.optional(),
+    include: GroupChatIncludeObjectSchema.optional(),
+    data: z.union([
+      GroupChatCreateInputObjectSchema,
+      GroupChatUncheckedCreateInputObjectSchema,
+    ]),
+  })
+  .strict() as unknown as z.ZodType<Prisma.GroupChatCreateArgs>;
 
-export const GroupChatCreateOneZodSchema = z.object({ select: GroupChatSelectObjectSchema.optional(), include: GroupChatIncludeObjectSchema.optional(), data: z.union([GroupChatCreateInputObjectSchema, GroupChatUncheckedCreateInputObjectSchema]) }).strict();
+export const GroupChatCreateOneZodSchema = z
+  .object({
+    select: GroupChatSelectObjectSchema.optional(),
+    include: GroupChatIncludeObjectSchema.optional(),
+    data: z.union([
+      GroupChatCreateInputObjectSchema,
+      GroupChatUncheckedCreateInputObjectSchema,
+    ]),
+  })
+  .strict();

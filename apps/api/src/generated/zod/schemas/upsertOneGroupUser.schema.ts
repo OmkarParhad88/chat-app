@@ -8,6 +8,34 @@ import { GroupUserUncheckedCreateInputObjectSchema as GroupUserUncheckedCreateIn
 import { GroupUserUpdateInputObjectSchema as GroupUserUpdateInputObjectSchema } from './objects/GroupUserUpdateInput.schema';
 import { GroupUserUncheckedUpdateInputObjectSchema as GroupUserUncheckedUpdateInputObjectSchema } from './objects/GroupUserUncheckedUpdateInput.schema';
 
-export const GroupUserUpsertOneSchema: z.ZodType<Prisma.GroupUserUpsertArgs> = z.object({ select: GroupUserSelectObjectSchema.optional(), include: GroupUserIncludeObjectSchema.optional(), where: GroupUserWhereUniqueInputObjectSchema, create: z.union([ GroupUserCreateInputObjectSchema, GroupUserUncheckedCreateInputObjectSchema ]), update: z.union([ GroupUserUpdateInputObjectSchema, GroupUserUncheckedUpdateInputObjectSchema ]) }).strict() as unknown as z.ZodType<Prisma.GroupUserUpsertArgs>;
+export const GroupUserUpsertOneSchema: z.ZodType<Prisma.GroupUserUpsertArgs> = z
+  .object({
+    select: GroupUserSelectObjectSchema.optional(),
+    include: GroupUserIncludeObjectSchema.optional(),
+    where: GroupUserWhereUniqueInputObjectSchema,
+    create: z.union([
+      GroupUserCreateInputObjectSchema,
+      GroupUserUncheckedCreateInputObjectSchema,
+    ]),
+    update: z.union([
+      GroupUserUpdateInputObjectSchema,
+      GroupUserUncheckedUpdateInputObjectSchema,
+    ]),
+  })
+  .strict() as unknown as z.ZodType<Prisma.GroupUserUpsertArgs>;
 
-export const GroupUserUpsertOneZodSchema = z.object({ select: GroupUserSelectObjectSchema.optional(), include: GroupUserIncludeObjectSchema.optional(), where: GroupUserWhereUniqueInputObjectSchema, create: z.union([ GroupUserCreateInputObjectSchema, GroupUserUncheckedCreateInputObjectSchema ]), update: z.union([ GroupUserUpdateInputObjectSchema, GroupUserUncheckedUpdateInputObjectSchema ]) }).strict();
+export const GroupUserUpsertOneZodSchema = z
+  .object({
+    select: GroupUserSelectObjectSchema.optional(),
+    include: GroupUserIncludeObjectSchema.optional(),
+    where: GroupUserWhereUniqueInputObjectSchema,
+    create: z.union([
+      GroupUserCreateInputObjectSchema,
+      GroupUserUncheckedCreateInputObjectSchema,
+    ]),
+    update: z.union([
+      GroupUserUpdateInputObjectSchema,
+      GroupUserUncheckedUpdateInputObjectSchema,
+    ]),
+  })
+  .strict();

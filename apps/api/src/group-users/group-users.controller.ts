@@ -1,13 +1,13 @@
 import { Controller, Get, Post, Body, Query } from '@nestjs/common';
-import { GroupUsersService } from './group-users.service';
+import { GroupUsersService } from '@/group-users/group-users.service';
 import {
   GroupUserWhereInputDto,
   CreateGroupUserDto,
-} from './dto/group-user.dto';
+} from '@/group-users/dto/group-user.dto';
 
 @Controller('group-user')
 export class GroupUsersController {
-  constructor(private readonly groupUsersService: GroupUsersService) { }
+  constructor(private readonly groupUsersService: GroupUsersService) {}
 
   @Post()
   async create(@Body() createGroupUserDto: CreateGroupUserDto) {

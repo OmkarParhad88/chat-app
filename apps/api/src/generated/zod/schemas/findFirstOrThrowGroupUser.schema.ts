@@ -9,22 +9,70 @@ import { GroupUserScalarFieldEnumSchema } from './enums/GroupUserScalarFieldEnum
 // Select schema needs to be in file to prevent circular imports
 //------------------------------------------------------
 
-export const GroupUserFindFirstOrThrowSelectSchema: z.ZodType<Prisma.GroupUserSelect> = z.object({
+export const GroupUserFindFirstOrThrowSelectSchema: z.ZodType<Prisma.GroupUserSelect> =
+  z
+    .object({
+      id: z.boolean().optional(),
+      group: z.boolean().optional(),
+      group_id: z.boolean().optional(),
+      name: z.boolean().optional(),
+      created_at: z.boolean().optional(),
+    })
+    .strict() as unknown as z.ZodType<Prisma.GroupUserSelect>;
+
+export const GroupUserFindFirstOrThrowSelectZodSchema = z
+  .object({
     id: z.boolean().optional(),
     group: z.boolean().optional(),
     group_id: z.boolean().optional(),
     name: z.boolean().optional(),
-    created_at: z.boolean().optional()
-  }).strict() as unknown as z.ZodType<Prisma.GroupUserSelect>;
+    created_at: z.boolean().optional(),
+  })
+  .strict();
 
-export const GroupUserFindFirstOrThrowSelectZodSchema = z.object({
-    id: z.boolean().optional(),
-    group: z.boolean().optional(),
-    group_id: z.boolean().optional(),
-    name: z.boolean().optional(),
-    created_at: z.boolean().optional()
-  }).strict();
+export const GroupUserFindFirstOrThrowSchema: z.ZodType<Prisma.GroupUserFindFirstOrThrowArgs> =
+  z
+    .object({
+      select: GroupUserFindFirstOrThrowSelectSchema.optional(),
+      include: z.lazy(() => GroupUserIncludeObjectSchema.optional()),
+      orderBy: z
+        .union([
+          GroupUserOrderByWithRelationInputObjectSchema,
+          GroupUserOrderByWithRelationInputObjectSchema.array(),
+        ])
+        .optional(),
+      where: GroupUserWhereInputObjectSchema.optional(),
+      cursor: GroupUserWhereUniqueInputObjectSchema.optional(),
+      take: z.number().optional(),
+      skip: z.number().optional(),
+      distinct: z
+        .union([
+          GroupUserScalarFieldEnumSchema,
+          GroupUserScalarFieldEnumSchema.array(),
+        ])
+        .optional(),
+    })
+    .strict() as unknown as z.ZodType<Prisma.GroupUserFindFirstOrThrowArgs>;
 
-export const GroupUserFindFirstOrThrowSchema: z.ZodType<Prisma.GroupUserFindFirstOrThrowArgs> = z.object({ select: GroupUserFindFirstOrThrowSelectSchema.optional(), include: z.lazy(() => GroupUserIncludeObjectSchema.optional()), orderBy: z.union([GroupUserOrderByWithRelationInputObjectSchema, GroupUserOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupUserWhereInputObjectSchema.optional(), cursor: GroupUserWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([GroupUserScalarFieldEnumSchema, GroupUserScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.GroupUserFindFirstOrThrowArgs>;
-
-export const GroupUserFindFirstOrThrowZodSchema = z.object({ select: GroupUserFindFirstOrThrowSelectSchema.optional(), include: z.lazy(() => GroupUserIncludeObjectSchema.optional()), orderBy: z.union([GroupUserOrderByWithRelationInputObjectSchema, GroupUserOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupUserWhereInputObjectSchema.optional(), cursor: GroupUserWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([GroupUserScalarFieldEnumSchema, GroupUserScalarFieldEnumSchema.array()]).optional() }).strict();
+export const GroupUserFindFirstOrThrowZodSchema = z
+  .object({
+    select: GroupUserFindFirstOrThrowSelectSchema.optional(),
+    include: z.lazy(() => GroupUserIncludeObjectSchema.optional()),
+    orderBy: z
+      .union([
+        GroupUserOrderByWithRelationInputObjectSchema,
+        GroupUserOrderByWithRelationInputObjectSchema.array(),
+      ])
+      .optional(),
+    where: GroupUserWhereInputObjectSchema.optional(),
+    cursor: GroupUserWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    distinct: z
+      .union([
+        GroupUserScalarFieldEnumSchema,
+        GroupUserScalarFieldEnumSchema.array(),
+      ])
+      .optional(),
+  })
+  .strict();

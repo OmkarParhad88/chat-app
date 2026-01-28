@@ -9,6 +9,47 @@ import { GroupUserMaxAggregateInputObjectSchema as GroupUserMaxAggregateInputObj
 import { GroupUserAvgAggregateInputObjectSchema as GroupUserAvgAggregateInputObjectSchema } from './objects/GroupUserAvgAggregateInput.schema';
 import { GroupUserSumAggregateInputObjectSchema as GroupUserSumAggregateInputObjectSchema } from './objects/GroupUserSumAggregateInput.schema';
 
-export const GroupUserAggregateSchema: z.ZodType<Prisma.GroupUserAggregateArgs> = z.object({ orderBy: z.union([GroupUserOrderByWithRelationInputObjectSchema, GroupUserOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupUserWhereInputObjectSchema.optional(), cursor: GroupUserWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), GroupUserCountAggregateInputObjectSchema ]).optional(), _min: GroupUserMinAggregateInputObjectSchema.optional(), _max: GroupUserMaxAggregateInputObjectSchema.optional(), _avg: GroupUserAvgAggregateInputObjectSchema.optional(), _sum: GroupUserSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.GroupUserAggregateArgs>;
+export const GroupUserAggregateSchema: z.ZodType<Prisma.GroupUserAggregateArgs> =
+  z
+    .object({
+      orderBy: z
+        .union([
+          GroupUserOrderByWithRelationInputObjectSchema,
+          GroupUserOrderByWithRelationInputObjectSchema.array(),
+        ])
+        .optional(),
+      where: GroupUserWhereInputObjectSchema.optional(),
+      cursor: GroupUserWhereUniqueInputObjectSchema.optional(),
+      take: z.number().optional(),
+      skip: z.number().optional(),
+      _count: z
+        .union([z.literal(true), GroupUserCountAggregateInputObjectSchema])
+        .optional(),
+      _min: GroupUserMinAggregateInputObjectSchema.optional(),
+      _max: GroupUserMaxAggregateInputObjectSchema.optional(),
+      _avg: GroupUserAvgAggregateInputObjectSchema.optional(),
+      _sum: GroupUserSumAggregateInputObjectSchema.optional(),
+    })
+    .strict() as unknown as z.ZodType<Prisma.GroupUserAggregateArgs>;
 
-export const GroupUserAggregateZodSchema = z.object({ orderBy: z.union([GroupUserOrderByWithRelationInputObjectSchema, GroupUserOrderByWithRelationInputObjectSchema.array()]).optional(), where: GroupUserWhereInputObjectSchema.optional(), cursor: GroupUserWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), GroupUserCountAggregateInputObjectSchema ]).optional(), _min: GroupUserMinAggregateInputObjectSchema.optional(), _max: GroupUserMaxAggregateInputObjectSchema.optional(), _avg: GroupUserAvgAggregateInputObjectSchema.optional(), _sum: GroupUserSumAggregateInputObjectSchema.optional() }).strict();
+export const GroupUserAggregateZodSchema = z
+  .object({
+    orderBy: z
+      .union([
+        GroupUserOrderByWithRelationInputObjectSchema,
+        GroupUserOrderByWithRelationInputObjectSchema.array(),
+      ])
+      .optional(),
+    where: GroupUserWhereInputObjectSchema.optional(),
+    cursor: GroupUserWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    _count: z
+      .union([z.literal(true), GroupUserCountAggregateInputObjectSchema])
+      .optional(),
+    _min: GroupUserMinAggregateInputObjectSchema.optional(),
+    _max: GroupUserMaxAggregateInputObjectSchema.optional(),
+    _avg: GroupUserAvgAggregateInputObjectSchema.optional(),
+    _sum: GroupUserSumAggregateInputObjectSchema.optional(),
+  })
+  .strict();

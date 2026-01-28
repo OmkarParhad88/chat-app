@@ -5,19 +5,33 @@ import { GroupChatCountOrderByAggregateInputObjectSchema as GroupChatCountOrderB
 import { GroupChatAvgOrderByAggregateInputObjectSchema as GroupChatAvgOrderByAggregateInputObjectSchema } from './GroupChatAvgOrderByAggregateInput.schema';
 import { GroupChatMaxOrderByAggregateInputObjectSchema as GroupChatMaxOrderByAggregateInputObjectSchema } from './GroupChatMaxOrderByAggregateInput.schema';
 import { GroupChatMinOrderByAggregateInputObjectSchema as GroupChatMinOrderByAggregateInputObjectSchema } from './GroupChatMinOrderByAggregateInput.schema';
-import { GroupChatSumOrderByAggregateInputObjectSchema as GroupChatSumOrderByAggregateInputObjectSchema } from './GroupChatSumOrderByAggregateInput.schema'
+import { GroupChatSumOrderByAggregateInputObjectSchema as GroupChatSumOrderByAggregateInputObjectSchema } from './GroupChatSumOrderByAggregateInput.schema';
 
-const makeSchema = () => z.object({
-  id: z.uuid().optional(),
-  user_id: SortOrderSchema.optional(),
-  title: SortOrderSchema.optional(),
-  passcode: SortOrderSchema.optional(),
-  created_at: SortOrderSchema.optional(),
-  _count: z.lazy(() => GroupChatCountOrderByAggregateInputObjectSchema).optional(),
-  _avg: z.lazy(() => GroupChatAvgOrderByAggregateInputObjectSchema).optional(),
-  _max: z.lazy(() => GroupChatMaxOrderByAggregateInputObjectSchema).optional(),
-  _min: z.lazy(() => GroupChatMinOrderByAggregateInputObjectSchema).optional(),
-  _sum: z.lazy(() => GroupChatSumOrderByAggregateInputObjectSchema).optional()
-}).strict();
-export const GroupChatOrderByWithAggregationInputObjectSchema: z.ZodType<Prisma.GroupChatOrderByWithAggregationInput> = makeSchema() as unknown as z.ZodType<Prisma.GroupChatOrderByWithAggregationInput>;
+const makeSchema = () =>
+  z
+    .object({
+      id: z.uuid().optional(),
+      user_id: SortOrderSchema.optional(),
+      title: SortOrderSchema.optional(),
+      passcode: SortOrderSchema.optional(),
+      created_at: SortOrderSchema.optional(),
+      _count: z
+        .lazy(() => GroupChatCountOrderByAggregateInputObjectSchema)
+        .optional(),
+      _avg: z
+        .lazy(() => GroupChatAvgOrderByAggregateInputObjectSchema)
+        .optional(),
+      _max: z
+        .lazy(() => GroupChatMaxOrderByAggregateInputObjectSchema)
+        .optional(),
+      _min: z
+        .lazy(() => GroupChatMinOrderByAggregateInputObjectSchema)
+        .optional(),
+      _sum: z
+        .lazy(() => GroupChatSumOrderByAggregateInputObjectSchema)
+        .optional(),
+    })
+    .strict();
+export const GroupChatOrderByWithAggregationInputObjectSchema: z.ZodType<Prisma.GroupChatOrderByWithAggregationInput> =
+  makeSchema() as unknown as z.ZodType<Prisma.GroupChatOrderByWithAggregationInput>;
 export const GroupChatOrderByWithAggregationInputObjectZodSchema = makeSchema();

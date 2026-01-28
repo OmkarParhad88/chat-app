@@ -4,6 +4,19 @@ import { ChatSelectObjectSchema as ChatSelectObjectSchema } from './objects/Chat
 import { ChatUpdateManyMutationInputObjectSchema as ChatUpdateManyMutationInputObjectSchema } from './objects/ChatUpdateManyMutationInput.schema';
 import { ChatWhereInputObjectSchema as ChatWhereInputObjectSchema } from './objects/ChatWhereInput.schema';
 
-export const ChatUpdateManyAndReturnSchema: z.ZodType<Prisma.ChatUpdateManyAndReturnArgs> = z.object({ select: ChatSelectObjectSchema.optional(), data: ChatUpdateManyMutationInputObjectSchema, where: ChatWhereInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ChatUpdateManyAndReturnArgs>;
+export const ChatUpdateManyAndReturnSchema: z.ZodType<Prisma.ChatUpdateManyAndReturnArgs> =
+  z
+    .object({
+      select: ChatSelectObjectSchema.optional(),
+      data: ChatUpdateManyMutationInputObjectSchema,
+      where: ChatWhereInputObjectSchema.optional(),
+    })
+    .strict() as unknown as z.ZodType<Prisma.ChatUpdateManyAndReturnArgs>;
 
-export const ChatUpdateManyAndReturnZodSchema = z.object({ select: ChatSelectObjectSchema.optional(), data: ChatUpdateManyMutationInputObjectSchema, where: ChatWhereInputObjectSchema.optional() }).strict();
+export const ChatUpdateManyAndReturnZodSchema = z
+  .object({
+    select: ChatSelectObjectSchema.optional(),
+    data: ChatUpdateManyMutationInputObjectSchema,
+    where: ChatWhereInputObjectSchema.optional(),
+  })
+  .strict();

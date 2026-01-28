@@ -4,8 +4,8 @@ import { GroupUserCreateInputObjectZodSchema } from '@prisma-zod/objects/GroupUs
 
 export class GroupUserWhereInputDto extends createZodDto(
   GroupUserWhereInputObjectZodSchema,
-) { }
+) {}
 
 export class CreateGroupUserDto extends createZodDto(
   GroupUserCreateInputObjectZodSchema,
-) { }
+) {}

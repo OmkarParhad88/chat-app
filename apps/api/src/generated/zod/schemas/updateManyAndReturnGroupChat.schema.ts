@@ -4,6 +4,19 @@ import { GroupChatSelectObjectSchema as GroupChatSelectObjectSchema } from './ob
 import { GroupChatUpdateManyMutationInputObjectSchema as GroupChatUpdateManyMutationInputObjectSchema } from './objects/GroupChatUpdateManyMutationInput.schema';
 import { GroupChatWhereInputObjectSchema as GroupChatWhereInputObjectSchema } from './objects/GroupChatWhereInput.schema';
 
-export const GroupChatUpdateManyAndReturnSchema: z.ZodType<Prisma.GroupChatUpdateManyAndReturnArgs> = z.object({ select: GroupChatSelectObjectSchema.optional(), data: GroupChatUpdateManyMutationInputObjectSchema, where: GroupChatWhereInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.GroupChatUpdateManyAndReturnArgs>;
+export const GroupChatUpdateManyAndReturnSchema: z.ZodType<Prisma.GroupChatUpdateManyAndReturnArgs> =
+  z
+    .object({
+      select: GroupChatSelectObjectSchema.optional(),
+      data: GroupChatUpdateManyMutationInputObjectSchema,
+      where: GroupChatWhereInputObjectSchema.optional(),
+    })
+    .strict() as unknown as z.ZodType<Prisma.GroupChatUpdateManyAndReturnArgs>;
 
-export const GroupChatUpdateManyAndReturnZodSchema = z.object({ select: GroupChatSelectObjectSchema.optional(), data: GroupChatUpdateManyMutationInputObjectSchema, where: GroupChatWhereInputObjectSchema.optional() }).strict();
+export const GroupChatUpdateManyAndReturnZodSchema = z
+  .object({
+    select: GroupChatSelectObjectSchema.optional(),
+    data: GroupChatUpdateManyMutationInputObjectSchema,
+    where: GroupChatWhereInputObjectSchema.optional(),
+  })
+  .strict();

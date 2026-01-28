@@ -8,6 +8,44 @@ import { ChatCountAggregateInputObjectSchema as ChatCountAggregateInputObjectSch
 import { ChatMinAggregateInputObjectSchema as ChatMinAggregateInputObjectSchema } from './objects/ChatMinAggregateInput.schema';
 import { ChatMaxAggregateInputObjectSchema as ChatMaxAggregateInputObjectSchema } from './objects/ChatMaxAggregateInput.schema';
 
-export const ChatGroupBySchema: z.ZodType<Prisma.ChatGroupByArgs> = z.object({ where: ChatWhereInputObjectSchema.optional(), orderBy: z.union([ChatOrderByWithAggregationInputObjectSchema, ChatOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ChatScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ChatScalarFieldEnumSchema), _count: z.union([ z.literal(true), ChatCountAggregateInputObjectSchema ]).optional(), _min: ChatMinAggregateInputObjectSchema.optional(), _max: ChatMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ChatGroupByArgs>;
+export const ChatGroupBySchema: z.ZodType<Prisma.ChatGroupByArgs> = z
+  .object({
+    where: ChatWhereInputObjectSchema.optional(),
+    orderBy: z
+      .union([
+        ChatOrderByWithAggregationInputObjectSchema,
+        ChatOrderByWithAggregationInputObjectSchema.array(),
+      ])
+      .optional(),
+    having: ChatScalarWhereWithAggregatesInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    by: z.array(ChatScalarFieldEnumSchema),
+    _count: z
+      .union([z.literal(true), ChatCountAggregateInputObjectSchema])
+      .optional(),
+    _min: ChatMinAggregateInputObjectSchema.optional(),
+    _max: ChatMaxAggregateInputObjectSchema.optional(),
+  })
+  .strict() as unknown as z.ZodType<Prisma.ChatGroupByArgs>;
 
-export const ChatGroupByZodSchema = z.object({ where: ChatWhereInputObjectSchema.optional(), orderBy: z.union([ChatOrderByWithAggregationInputObjectSchema, ChatOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ChatScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ChatScalarFieldEnumSchema), _count: z.union([ z.literal(true), ChatCountAggregateInputObjectSchema ]).optional(), _min: ChatMinAggregateInputObjectSchema.optional(), _max: ChatMaxAggregateInputObjectSchema.optional() }).strict();
+export const ChatGroupByZodSchema = z
+  .object({
+    where: ChatWhereInputObjectSchema.optional(),
+    orderBy: z
+      .union([
+        ChatOrderByWithAggregationInputObjectSchema,
+        ChatOrderByWithAggregationInputObjectSchema.array(),
+      ])
+      .optional(),
+    having: ChatScalarWhereWithAggregatesInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    by: z.array(ChatScalarFieldEnumSchema),
+    _count: z
+      .union([z.literal(true), ChatCountAggregateInputObjectSchema])
+      .optional(),
+    _min: ChatMinAggregateInputObjectSchema.optional(),
+    _max: ChatMaxAggregateInputObjectSchema.optional(),
+  })
+  .strict();

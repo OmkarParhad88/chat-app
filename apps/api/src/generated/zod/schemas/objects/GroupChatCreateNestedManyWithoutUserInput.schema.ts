@@ -4,13 +4,41 @@ import { GroupChatCreateWithoutUserInputObjectSchema as GroupChatCreateWithoutUs
 import { GroupChatUncheckedCreateWithoutUserInputObjectSchema as GroupChatUncheckedCreateWithoutUserInputObjectSchema } from './GroupChatUncheckedCreateWithoutUserInput.schema';
 import { GroupChatCreateOrConnectWithoutUserInputObjectSchema as GroupChatCreateOrConnectWithoutUserInputObjectSchema } from './GroupChatCreateOrConnectWithoutUserInput.schema';
 import { GroupChatCreateManyUserInputEnvelopeObjectSchema as GroupChatCreateManyUserInputEnvelopeObjectSchema } from './GroupChatCreateManyUserInputEnvelope.schema';
-import { GroupChatWhereUniqueInputObjectSchema as GroupChatWhereUniqueInputObjectSchema } from './GroupChatWhereUniqueInput.schema'
+import { GroupChatWhereUniqueInputObjectSchema as GroupChatWhereUniqueInputObjectSchema } from './GroupChatWhereUniqueInput.schema';
 
-const makeSchema = () => z.object({
-  create: z.union([z.lazy(() => GroupChatCreateWithoutUserInputObjectSchema), z.lazy(() => GroupChatCreateWithoutUserInputObjectSchema).array(), z.lazy(() => GroupChatUncheckedCreateWithoutUserInputObjectSchema), z.lazy(() => GroupChatUncheckedCreateWithoutUserInputObjectSchema).array()]).optional(),
-  connectOrCreate: z.union([z.lazy(() => GroupChatCreateOrConnectWithoutUserInputObjectSchema), z.lazy(() => GroupChatCreateOrConnectWithoutUserInputObjectSchema).array()]).optional(),
-  createMany: z.lazy(() => GroupChatCreateManyUserInputEnvelopeObjectSchema).optional(),
-  connect: z.union([z.lazy(() => GroupChatWhereUniqueInputObjectSchema), z.lazy(() => GroupChatWhereUniqueInputObjectSchema).array()]).optional()
-}).strict();
-export const GroupChatCreateNestedManyWithoutUserInputObjectSchema: z.ZodType<Prisma.GroupChatCreateNestedManyWithoutUserInput> = makeSchema() as unknown as z.ZodType<Prisma.GroupChatCreateNestedManyWithoutUserInput>;
-export const GroupChatCreateNestedManyWithoutUserInputObjectZodSchema = makeSchema();
+const makeSchema = () =>
+  z
+    .object({
+      create: z
+        .union([
+          z.lazy(() => GroupChatCreateWithoutUserInputObjectSchema),
+          z.lazy(() => GroupChatCreateWithoutUserInputObjectSchema).array(),
+          z.lazy(() => GroupChatUncheckedCreateWithoutUserInputObjectSchema),
+          z
+            .lazy(() => GroupChatUncheckedCreateWithoutUserInputObjectSchema)
+            .array(),
+        ])
+        .optional(),
+      connectOrCreate: z
+        .union([
+          z.lazy(() => GroupChatCreateOrConnectWithoutUserInputObjectSchema),
+          z
+            .lazy(() => GroupChatCreateOrConnectWithoutUserInputObjectSchema)
+            .array(),
+        ])
+        .optional(),
+      createMany: z
+        .lazy(() => GroupChatCreateManyUserInputEnvelopeObjectSchema)
+        .optional(),
+      connect: z
+        .union([
+          z.lazy(() => GroupChatWhereUniqueInputObjectSchema),
+          z.lazy(() => GroupChatWhereUniqueInputObjectSchema).array(),
+        ])
+        .optional(),
+    })
+    .strict();
+export const GroupChatCreateNestedManyWithoutUserInputObjectSchema: z.ZodType<Prisma.GroupChatCreateNestedManyWithoutUserInput> =
+  makeSchema() as unknown as z.ZodType<Prisma.GroupChatCreateNestedManyWithoutUserInput>;
+export const GroupChatCreateNestedManyWithoutUserInputObjectZodSchema =
+  makeSchema();
